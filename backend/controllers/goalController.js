@@ -12,7 +12,11 @@ const setGoals = asyncHandler(async(req, res)=>{
         res.status(400)
         throw new Error("Please enter a valid input text")
     }
-    res.status(200).json({Message: "Create a goals"})
+    const goal = await Goal.create({
+        text: req.body.text
+    })
+    console.log(goal)
+    res.status(200).json(goal)
 })
 
 const updateGoals = asyncHandler(async(req, res)=>{
