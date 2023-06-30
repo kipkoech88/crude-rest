@@ -53,6 +53,23 @@ const registerUser = asyncHandler(async(req, res)=>{
 //@access Public
 
 const loginUser = asyncHandler(async(req, res)=>{
+
+    const {email, password} = req.body;
+
+    const user = await User.findOne({email});
+
+    //check if user exist
+    if (user && (await bcrypt.compare(password, user.password))){
+        res.json({
+            _id:user.id,
+            email: user.email,
+            name: user.name
+        })
+    }
+    else{
+        res.status(400);
+        throw new Error("No matching user details")
+    }
     res.json({message: "Login USers"})
 })
 
