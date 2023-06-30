@@ -81,7 +81,14 @@ const loginUser = asyncHandler(async(req, res)=>{
 
 
 const getUser = asyncHandler(async(req, res)=>{
-    res.json({message: "Register USers"})
+    const {_id, email, name} = req.user;
+
+    res.status(200).json({
+        id: _id,
+        email: email,
+        name: name
+    });
+
 })
 
 
