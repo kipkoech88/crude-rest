@@ -8,3 +8,5 @@ Redux toolkit and styled with Tailwindcss
 [Crude rest](https://crude-rest-api.onrender.com/)
 ### goals
 [crude rest goals](https://crude-rest-api.onrender.com/api/goals)
+### register users
+[crude rest register](https://crude-rest-api.onrender.com/api/users/register)
